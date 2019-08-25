@@ -479,7 +479,7 @@ function prototype:OnDisable()
 	self.MobDebuffHandlers		= del(self.MobDebuffHandlers)
 	self.SpellReflectSources 	= del(self.SpellReflectSources)
 	self.ClassDebuffs 			= del(self.ClassDebuffs)
-	self.ThreatQueries 			= del(self.ThreatQueries)	
+	self.ThreatQueries 			= del(self.ThreatQueries)
 	]]--
 	-- self.booted = false
 end
@@ -1038,7 +1038,7 @@ function prototype:PLAYER_REGEN_ENABLED()
 	self:calcBuffMods()
 	self:calcDebuffMods()
 	if not self.TransactionsCommitting then return end
-	-- PET_ATTACK_STOP doesn't always fire like you might expect it to	
+	-- PET_ATTACK_STOP doesn't always fire like you might expect it to
 	if self.unitType == "pet" then
 		if self.timers.PetInCombat then
 			self:CancelTimer(self.timers.PetInCombat)
@@ -1210,7 +1210,7 @@ end
 prototype.ReduceAllThreat = prototype.MultiplyThreat
 
 ------------------------------------------------
--- Spell transactions 
+-- Spell transactions
 ------------------------------------------------
 function prototype:UNIT_SPELLCAST_SUCCEEDED(event, castingUnit, castGUID, spellID)
 	if castingUnit ~= self.unitType then return end
@@ -1226,7 +1226,7 @@ function prototype:startTransaction(recipient, spellID)
 	--[[
 	if type("recipient") ~= "asdf" then
 		error(("Expecting string for recipient, got %s (%s), trace: %s"):format(type(recipient), recipient, debugstack()))
-	end	
+	end
 	]]--
 	local key = spellID .. "-" .. recipient
 	local t = self.transactions[key]

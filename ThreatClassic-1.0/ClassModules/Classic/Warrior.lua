@@ -142,7 +142,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		-- Taunt
 		self.CastLandedHandlers[355] = self.Taunt
 
-		-- Non-transactional abilities		
+		-- Non-transactional abilities
 		init(self, threatValues.heroicStrike, self.HeroicStrike)
 		init(self, threatValues.shieldBash, self.ShieldBash)
 		init(self, threatValues.shieldSlam, self.ShieldSlam)

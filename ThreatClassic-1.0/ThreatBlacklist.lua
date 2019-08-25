@@ -11,11 +11,11 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 	 Mob IDs to completely ignore all threat calculations on, in decimal.
 	 This should be things like Crypt Scarabs, which do not have a death message after kamikaze-ing, or
 	 other very-low-HP enemies that zerg players and for whom threat data is not important.
-	 
+
 	 The reason for this is to eliminate unnecessary comms traffic gluts when these enemies are spawned, or to
 	 prevent getting enemies that despawn (and not die) from getting "stuck" in the threat list for the duration
 	 of the fight.
-	]]-- 
+	]]--
 
 	ThreatLib.BLACKLIST_MOB_IDS = {
 		[17967] = true,		-- Crypt Scarabs, used by Crypt Fiends in Hyjal
@@ -30,8 +30,8 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		[24554] = true,		-- Eramas Brightblaze
 		[24555] = true,		-- Garaxxas
 		[24556] = true,		-- Zelfan
-		[24557] = true,		-- Kagani Nightstrike 
-		[24558] = true,		-- Ellris Duskhallow 
+		[24557] = true,		-- Kagani Nightstrike
+		[24558] = true,		-- Ellris Duskhallow
 		[24559] = true,		-- Warlord Salaris
 		[24560] = true,		-- Priestess Delrissa
 		[24561] = true,		-- Yazzai
@@ -71,7 +71,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		[25744] = true,		-- Dark Fiend (M'uru)
 		[25502] = true,		-- Shield Orb (Kil'jaeden)
 
-		-- [22144] = true,	-- Test, comment out for production 
+		-- [22144] = true,	-- Test, comment out for production
 	}
 
 	function ThreatLib:IsMobBlacklisted(guid)
