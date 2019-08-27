@@ -6,4 +6,4 @@
 ## X-Category: Library
 
 embeds.xml
-ThreatClassic-1.0\lib.xml
+lib.xml
