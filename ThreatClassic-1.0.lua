@@ -1,6 +1,6 @@
 --[[-----------------------------------------------------------------------------
 Name: ThreatClassic-1.0
-Revision: $Revision: 1 $
+Revision: $Revision: 3 $
 Author(s): Es (EsreverWoW)
 Website: https://github.com/EsreverWoW/LibThreatClassic
 Documentation: https://github.com/EsreverWoW/LibThreatClassic/wiki
