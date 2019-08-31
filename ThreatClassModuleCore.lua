@@ -541,8 +541,9 @@ function cleuHandlers:SPELL_HEAL(timestamp, subEvent, hideCaster, sourceGUID, so
 end
 cleuHandlers.SPELL_PERIODIC_HEAL = cleuHandlers.SPELL_HEAL
 
-function cleuHandlers:SPELL_MISSED(timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags,
-				   spellId, spellName, spellSchool, missType)
+function cleuHandlers:SPELL_MISSED(timestamp, subEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName, spellSchool, missType)
+	-- spellId = ThreatLib.Classic and ThreatLib:GetSpellID(spellName, "player", auraType) or spellId
+	spellId = ThreatLib:GetSpellID(spellName, "player", auraType) or spellId
 	if bit_band(sourceFlags, self.unitTypeFilter) == self.unitTypeFilter and self.CastMissHandlers[spellId] then
 		self.CastMissHandlers[spellId](self, spellId, destGUID)
 	elseif bit_band(destFlags, self.unitTypeFilter) == self.unitTypeFilter and missType == "REFLECT" then
