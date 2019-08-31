@@ -1,9 +1,9 @@
 local MAJOR_VERSION = "ThreatClassic-1.0"
-local MINOR_VERSION = 2
+local MINOR_VERSION = 3
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
-if select(2, _G.UnitClass("player")) ~= "WARLOCK" then return end
+if select(2, _G.UnitClass("player")) ~= "WARLOCK" then return end 
 
 ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 
