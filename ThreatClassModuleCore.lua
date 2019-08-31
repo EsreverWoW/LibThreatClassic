@@ -10,7 +10,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 -- Blizzard Combat Log constants, in case your addon loads before Blizzard_CombatLog or it's disabled by the user
 ---------------------------------------------------------------------------------------------------------------
 local bit_band = _G.bit.band
-local bit_bor  = _G.bit.bor
+local bit_bor = _G.bit.bor
 
 local COMBATLOG_OBJECT_AFFILIATION_MINE		= COMBATLOG_OBJECT_AFFILIATION_MINE		or 0x00000001
 local COMBATLOG_OBJECT_AFFILIATION_PARTY	= COMBATLOG_OBJECT_AFFILIATION_PARTY	or 0x00000002
@@ -479,7 +479,7 @@ function prototype:OnDisable()
 	self.MobDebuffHandlers		= del(self.MobDebuffHandlers)
 	self.SpellReflectSources 	= del(self.SpellReflectSources)
 	self.ClassDebuffs 			= del(self.ClassDebuffs)
-	self.ThreatQueries 			= del(self.ThreatQueries)
+	self.ThreatQueries 			= del(self.ThreatQueries)	
 	]]--
 	-- self.booted = false
 end
@@ -533,7 +533,7 @@ function cleuHandlers:SPELL_HEAL(timestamp, subEvent, hideCaster, sourceGUID, so
 	if bit_band(sourceFlags, self.unitTypeFilter) == self.unitTypeFilter then
 		local max_potential_heal = UnitHealthMax(destName) - UnitHealth(destName)
 		local effective_heal = math_min(max_potential_heal, amount)
-		if UnitHealthMax(destName) == 0 then		-- They aren't in our party so we can't really get overheal for them
+		if UnitHealthMax(destName) == 0 then -- They aren't in our party so we can't really get overheal for them
 			effective_heal = amount
 		end
 		self:parseHeal(destGUID, destName, effective_heal, spellId, spellName, spellSchool, critical)
@@ -1038,7 +1038,7 @@ function prototype:PLAYER_REGEN_ENABLED()
 	self:calcBuffMods()
 	self:calcDebuffMods()
 	if not self.TransactionsCommitting then return end
-	-- PET_ATTACK_STOP doesn't always fire like you might expect it to
+	-- PET_ATTACK_STOP doesn't always fire like you might expect it to	
 	if self.unitType == "pet" then
 		if self.timers.PetInCombat then
 			self:CancelTimer(self.timers.PetInCombat)

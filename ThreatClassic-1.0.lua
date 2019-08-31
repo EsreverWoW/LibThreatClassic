@@ -739,7 +739,7 @@ end
 
 ------------------------------------------------------------------------
 -- :GetThreat("playerName", "targetName" or "targetHash")
--- Arguments:
+-- Arguments: 
 --  string - Name of the player or pet to get threat for
 --  string - Name or hash of the target to get threat on
 -- Notes:
@@ -773,7 +773,7 @@ end
 
 ------------------------------------------------------------------------
 -- :UnitInMeleeRange("unitID")
--- Arguments:
+-- Arguments: 
 --  string - UnitID to check melee range for
 -- Notes:
 -- Returns true if the unit is within 10 yards
@@ -960,7 +960,7 @@ end
 --   integer - NPC ID of the enemy to ask the group to wipe threat on
 -- Notes:
 -- Sends a comm message to the group instructing them to wipe their threat
--- levels on a specific mob. This is not protected as it needs to be able to
+-- levels on a specific mob. This is not protected as it needs to be able to 
 -- be executed by anyone who sees the relevant events.
 --
 -- KTM protects this by requiring 2 or more people to send the event before
@@ -1061,7 +1061,7 @@ end
 
 ------------------------------------------------------------------------
 -- :GetThreatStatusColor("unit", "mob")
--- Arguments:
+-- Arguments: 
 --  integer - the threat status value to get colors for.
 -- Returns:
 --  float - a value between 0 and 1 for the red content of the color

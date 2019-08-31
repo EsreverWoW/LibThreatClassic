@@ -50,7 +50,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		2812, 10318,
 
 		-- Judgement of Command
-		20467, 20963, 20964, 20964, 20966,
+		20467, 20963, 20964, 20964, 20966, 
 
 		-- Judgement of Righteousness
 		20187, 20280, 20281, 20282, 20283, 20284, 20285, 20286,
@@ -59,7 +59,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		7294, 10298, 10299, 10300, 10301,
 
 		-- Seal of Command
-		20375,
+		20375, 
 
 		-- Seal of Righteousness
 		21084, 20287, 20288, 20289, 20290, 20291, 20292, 20293,
@@ -111,7 +111,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 	end
 
 	function Paladin:ScanTalents()
-		-- Scan talents
+		-- Scan talents	
 		if ThreatLib.Classic then
 			self.righteousFuryMod = 1.6 + (0.6 * irfRanks[select(5, GetTalentInfo(2, 7)) + 1])
 		else
