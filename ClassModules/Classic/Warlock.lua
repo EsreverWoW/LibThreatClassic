@@ -77,8 +77,16 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		}
 
 		-- Life Tap
+		--[[
 		self.ExemptGains[31818] = true
 		self.ExemptGains[32553] = true
+		--]]
+		self.ExemptGains[1454] = true
+		self.ExemptGains[1455] = true
+		self.ExemptGains[1456] = true
+		self.ExemptGains[11687] = true
+		self.ExemptGains[11688] = true
+		self.ExemptGains[11689] = true
 
 		-- Death Coil Heals
 		self.ExemptGains[6789] = true
