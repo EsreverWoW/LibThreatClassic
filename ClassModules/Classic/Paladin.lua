@@ -71,8 +71,8 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 
 	function Paladin:ClassInit()
 		-- Righteous Fury
-		for _, id in ipairs(HolyDamageIDs) do
-			self.BuffHandlers[id] = self.RighteousFury
+		for i = 1, #HolyDamageIDs[i] do
+			self.AbilityHandlers[HolyDamageIDs[i]] = self.RighteousFury
 		end
 		HolyDamageIDs = nil
 
