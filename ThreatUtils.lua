@@ -263,6 +263,31 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		ThreatLib.callbacks:Fire(action, GetTime(), from, to, threat)
 	end
 
+	local npcSpells = {
+		-- threat * 0.5
+		[GetSpellInfo(23339)] = 23339,	-- Wing Buffet
+		[GetSpellInfo(10101)] = 10101,	-- Knock Away
+
+		-- threat * 0.75
+		-- [GetSpellInfo(19633)] = 19633,	-- Knock Away
+		[GetSpellInfo(20566)] = 20566,	-- Wrath of Ragnaros
+
+		-- wipe threat
+		[GetSpellInfo(26102)] = 26102,	-- Sand Blast
+
+		-- Other
+		[GetSpellInfo(23138)] = 26102,	-- Gate of Shazzrah
+		[GetSpellInfo(28410)] = 28410,	-- Chains of Kel'Thuzad
+		[GetSpellInfo(29211)] = 29211,	-- Blink
+	}
+
+	function ThreatLib:GetNPCSpellID(spellName)
+		-- need to write a way to make sure we get the right "Knock Away"
+		-- one is 0.5 and the other is 0.75
+		-- mainly an issue on Onyxia
+		return npcSpells[spellName] or 0
+	end
+
 	function ThreatLib:GetSpellID(spellName, unit, auraType)
 		-- change localized MELEE string into the appropriate spellID
 		if spellName == MELEE then
@@ -278,42 +303,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 		else
 			-- eventually build a cache from UNIT_SPELLCAST_* events to track lower ranks
 			-- for now, we just assume max rank and get that spellID from the spellbook
-			return select(7, GetSpellInfo(spellName))
+			return select(7, GetSpellInfo(spellName)) or 0
 		end
-	end
-
-	local localizedNPCSpells = {}
-
-	local npcSpells = {
-		-- threat * 0.5
-		[23339] = true,	-- Wing Buffet
-		[10101] = true,	-- Knock Away
-
-		-- threat * 0.75
-		[19633] = true,	-- Knock Away
-		[20566] = true,	-- Wrath of Ragnaros
-
-		-- wipe threat
-		[26102] = true,	-- Sand Blast
-
-		-- Other
-		[23138] = true,	-- Gate of Shazzrah
-		[28410] = true,	-- Chains of Kel'Thuzad
-		[29211] = true,	-- Blink
-	}
-
-	for id in pairs(npcSpells) do
-		local n = GetSpellInfo(id)
-		if n then
-			localizedNPCSpells[n] = id
-		end
-	end
-	npcSpells = nil
-
-	function ThreatLib:GetNPCSpellID(spellName)
-		-- need to write a way to make sure we get the right "Knock Away"
-		-- one is 0.5 and the other is 0.75
-		-- mainly an issue on Onyxia
-		return localizedNPCSpells[spellName] or 0
 	end
 end
