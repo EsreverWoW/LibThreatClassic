@@ -78,7 +78,10 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 			self.CastLandedHandlers[k] = self.Cower
 		end
 		for k, v in pairs(threatValues.demoralizingRoar) do
-			self.CastLandedHandlers[k] = self.DemoralizingRoar
+			self.CastHandlers[k] = self.DemoralizingRoar
+		end
+		for k, v in pairs(threatValues.demoralizingRoar) do
+			self.CastMissHandlers[k] = self.DemoralizingRoarMiss
 		end
 
 		-- Subtlety for all Arcane or Nature Damage, as well as heals.
@@ -172,9 +175,11 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 	end
 
 	function Druid:DemoralizingRoar(spellID, target)
-		for k, v in pairs(self.targetThreat) do
-			self:AddTargetThreat(target, threatValues.demoralizingRoar[spellID] * self:threatMods())
-		end
+		self:AddThreat(threatValues.demoralizingRoar[spellID] * self:threatMods())
+	end
+
+	function Druid:DemoralizingRoarMiss(spellID, target)
+		self:rollbackTransaction(target, spellID)
 	end
 
 	function Druid:Subtlety(amount)
