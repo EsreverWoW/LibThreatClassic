@@ -16,7 +16,7 @@ if (LibStub.minors[MAJOR_VERSION] or 0) >= MINOR_VERSION then
 end
 
 -- Create ThreatLib as an AceAddon for module stuff
-local ThreatLib = LibStub("AceAddon-3.0"):GetAddon("ThreatLib-2.0", true) or LibStub("AceAddon-3.0"):NewAddon("ThreatLib-2.0")
+local ThreatLib = LibStub("AceAddon-3.0"):GetAddon("ThreatClassic-1.0", true) or LibStub("AceAddon-3.0"):NewAddon("ThreatClassic-1.0")
 LibStub("AceAddon-3.0"):EmbedLibraries(ThreatLib,
 	"AceComm-3.0",
 	"AceConsole-3.0",
