@@ -181,7 +181,7 @@ local guidLookup = ThreatLib.GUIDNameLookup
 
 local new, del, newHash, newSet = ThreatLib.new, ThreatLib.del, ThreatLib.newHash, ThreatLib.newSet
 
-local BLACKLIST_MOB_IDS = ThreatLib.BLACKLIST_MOB_IDS or {}		-- Default takes care of people that update and don't reboot WoW :P
+local BLACKLIST_MOB_IDS = ThreatLib.BLACKLIST_MOB_IDS or {} -- Default takes care of people that update and don't reboot WoW :P
 
 local BuffModifiers = {
 	-- Tranquil Air

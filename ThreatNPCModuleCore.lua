@@ -453,7 +453,8 @@ function ThreatLibNPCModuleCore.modulePrototype:COMBAT_LOG_EVENT_UNFILTERED(even
 
 	local timestamp, subEvent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName, _, auraType = CombatLogGetCurrentEventInfo()
 
-	spellId = ThreatLib.Classic and ThreatLib:GetNPCSpellID(spellName) or spellId
+	-- spellId = ThreatLib.Classic and ThreatLib:GetNPCSpellID(spellName) or spellId
+	spellId = ThreatLib:GetNPCSpellID(spellName) or spellId
 
 	if subEvent == "UNIT_DIED" then
 		if bit_band(destFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC then
