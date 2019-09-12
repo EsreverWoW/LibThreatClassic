@@ -144,9 +144,9 @@ end
 
 local onyThreat = function(mob, target)
 	local npcID = ThreatLib:NPCID(mob)
-	if npcID and npcID == 10184 then
-		ModifyThreat(mob, target, 0.75, 0) -- set Onyxia threat *0.75 on Knock Away
-	end
+	if npcID and npcID ~= 10184 then return end
+
+	ModifyThreat(mob, target, 0.75, 0) -- set Onyxia threat *0.75 on Knock Away
 end
 
 local halveThreat = function(mob, target)
@@ -210,7 +210,7 @@ function ThreatLibNPCModuleCore:OnInitialize()
 	self.ModifyThreatSpells = {}
 
 	-- Necessary for WoW Classic
-	self.ModifyThreatSpells[19633] = onyThreat
+	self.ModifyThreatSpells[10101] = onyThreat -- 10101 (instead of 19633) because that's what in the lookup
 
 	for i = 1, #threatHalveSpellIDs do
 		self.ModifyThreatSpells[threatHalveSpellIDs[i]] = halveThreat
