@@ -337,7 +337,8 @@ function ThreatLibNPCModuleCore:COMBAT_LOG_EVENT_UNFILTERED(event, ...)
 			unitID = "pet"
 		end
 		if unitID then
-			spellId = ThreatLib.Classic and ThreatLib:GetNPCSpellID(spellName) or spellId
+			-- spellId = ThreatLib.Classic and ThreatLib:GetNPCSpellID(spellName) or spellId
+			spellId = ThreatLib:GetNPCSpellID(spellName) or spellId
 			local func = self.ModifyThreatSpells[spellId]
 			if func then
 				func(sourceGUID, unitID)
