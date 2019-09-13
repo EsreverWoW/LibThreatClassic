@@ -13,7 +13,7 @@ ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
 	ThreatLib:GetModule("NPCCore"):RegisterModule(NOTH_ID, function(Noth)
 		function Noth:Init()
 			self:RegisterCombatant(NOTH_ID, true)
-			self.buffGains[BLINK_ID] = self.Wipe
+			self.buffGains[BLINK_ID] = self.Wipe -- FIXME: May not work in Classic
 		end
 
 		function Noth:Wipe()
