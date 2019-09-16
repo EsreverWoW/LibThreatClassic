@@ -1,9 +1,5 @@
-local MAJOR_VERSION = "ThreatClassic-1.0"
-local MINOR_VERSION = 4
-
-if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
-
-ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
+local ThreatLib = LibStub and LibStub("ThreatClassic-1.0", true)
+if not ThreatLib then return end
 
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
@@ -174,7 +170,6 @@ local UnitGUID = _G.UnitGUID
 local UnitAura = _G.UnitAura
 local GetWeaponEnchantInfo = _G.GetWeaponEnchantInfo
 
-local ThreatLib = _G.ThreatLib
 local prototype = {}
 
 local guidLookup = ThreatLib.GUIDNameLookup
@@ -1327,5 +1322,3 @@ ThreatLib.GetOrCreateModule = function(self, t)
 end
 
 ThreatLib.ClassModulePrototype = prototype
-
-end

@@ -1,11 +1,5 @@
-local MAJOR_VERSION = "ThreatClassic-1.0"
-local MINOR_VERSION = 4
-
-if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then
-	_G.ThreatLib_MINOR_VERSION = MINOR_VERSION
-end
-
-ThreatLib_funcs[#ThreatLib_funcs + 1] = function()
+local ThreatLib = LibStub and LibStub("ThreatClassic-1.0", true)
+if not ThreatLib then return end
 
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
@@ -100,7 +94,6 @@ local REACTION_ATTACKABLE = bit_bor(COMBATLOG_OBJECT_REACTION_HOSTILE, COMBATLOG
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
 
-local ThreatLib = _G.ThreatLib
 local new, del, newHash, newSet = ThreatLib.new, ThreatLib.del, ThreatLib.newHash, ThreatLib.newSet
 local ThreatLibNPCModuleCore = ThreatLib:GetModule("NPCCore", true) or ThreatLib:NewModule("NPCCore", nil, "AceEvent-3.0", "AceTimer-3.0")
 
@@ -613,6 +606,4 @@ end
 
 function ThreatLibNPCModuleCore.modulePrototype:WipeAllRaidThreat()
 	ThreatLib:RequestThreatClear()
-end
-
 end
