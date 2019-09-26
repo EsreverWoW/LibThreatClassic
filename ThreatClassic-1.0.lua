@@ -417,7 +417,7 @@ local npcSpells = {
 	[GetSpellInfo(26102)] = 26102,	-- Sand Blast
 
 	-- Other
-	[GetSpellInfo(23138)] = 26102,	-- Gate of Shazzrah
+	[GetSpellInfo(23138)] = 23138,	-- Gate of Shazzrah
 	[GetSpellInfo(28410)] = 28410,	-- Chains of Kel'Thuzad
 	[GetSpellInfo(29211)] = 29211,	-- Blink
 }
