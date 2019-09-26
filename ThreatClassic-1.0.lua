@@ -1,6 +1,6 @@
 --[[-----------------------------------------------------------------------------
 Name: ThreatClassic-1.0
-Revision: $Revision: 6 $
+Revision: $Revision: 7 $
 Author(s): Es (EsreverWoW)
 Website: https://github.com/EsreverWoW/LibThreatClassic
 Documentation: https://github.com/EsreverWoW/LibThreatClassic/wiki
@@ -75,7 +75,7 @@ LibStub.libs[MAJOR] = ThreatLib
 LibStub.minors[MINOR] = MINOR
 
 -- Update this when backwards incompatible changes are made
-local LAST_BACKWARDS_COMPATIBLE_REVISION = 3
+local LAST_BACKWARDS_COMPATIBLE_REVISION = 4
 
 local CBH = LibStub:GetLibrary("CallbackHandler-1.0")
 -- local CTL = assert(ChatThrottleLib, "ThreatClassic-1.0 requires ChatThrottleLib")
