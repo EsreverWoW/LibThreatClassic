@@ -390,7 +390,7 @@ end
 function ThreatLib:NPCID(guid)
 	local unitType, _, _, _, _, npcID = strsplit("-", guid)
 	if unitType ~= "Player" then
-		return npcID
+		return tonumber(npcID)
 	end
 end
 
