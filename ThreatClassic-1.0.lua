@@ -1193,14 +1193,13 @@ do
 end
 
 -- #NODOC
-local playerClass
 function ThreatLib:GetPublishInterval()
-	-- Scale publish interval from 1.5 to 2.5 based on party size, half that for tanks
+	-- Scale publish interval from 1.0 to 1.5 based on party size, half that for tanks
 	-- We'll be at 1.5 sec for 0-5 party size, scale from 1.5 to 2.5 for 6-25 players, and stay at 2.5 for > 20 players
-	-- This means that we'll transmit as much as 40% less data in a raid
+	-- This means that we'll transmit less data in a raid
 	local playerClass = playerClass or select(2, UnitClass("player"))
 	local partyNum = max(0, (self.currentPartySize or 0) - 5)
-	local interval = min(2.5, 1.5 + (1 * (partyNum / 20)))
+	local interval = min(1.5, 1 + (1 * (partyNum / 20)))
 
 	-- Make tanks update more often
 	if playerClass == "WARRIOR" or playerClass == "DRUID" or playerClass == "PALADIN" then
