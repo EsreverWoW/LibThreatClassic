@@ -324,7 +324,7 @@ function ThreatLibNPCModuleCore:COMBAT_LOG_EVENT_UNFILTERED(event, ...)
 	local timestamp, subEvent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName, _, missType = CombatLogGetCurrentEventInfo()
 
 	-- fully resisted spells apparently still perform threat mods, so SPELL_MISS is needed in Classic
-	if (subEvent == "SPELL_DAMAGE" or (subEvent == "SPELL_MISS" and missType == "RESIST")) and bit_band(sourceFlags, REACTION_ATTACKABLE) ~= 0 and bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC then
+	if (subEvent == "SPELL_DAMAGE" or (subEvent == "SPELL_MISS" and (missType == "RESIST" or missType == "ABSORB"))) and bit_band(sourceFlags, REACTION_ATTACKABLE) ~= 0 and bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_NPC) == COMBATLOG_OBJECT_TYPE_NPC then
 		local unitID = nil
 		if bit_band(destFlags, COMBATLOG_FILTER_ME) == COMBATLOG_FILTER_ME then
 			unitID = "player"
