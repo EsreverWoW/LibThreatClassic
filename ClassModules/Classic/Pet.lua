@@ -113,11 +113,23 @@ function Pet:ScanPetSkillRanks()
 end
 
 function Pet:GetSkillThreat(spellID, target)
+	ThreatLib:Debug("Handle pet skill: "..spellID)
+
 	local rank = spellIDRanks[spellID]
 	local skill = skillData[spellLookups[spellID]]
 	local rankLevel = skill.rankLevel
-
-	local threat = skill.rankThreat[rank]
+	
+	local talentMod = 1
+	local playerClass = select(2, UnitClass("player"))
+	local spellName = GetSpellInfo(spellID)
+	-- handle Suffering and Torment
+	if playerClass == "WARLOCK" and (spellName == GetSpellInfo(11775) or spellName == GetSpellInfo(17751)) then
+		local _,_,_,_,rank=GetTalentInfo(2, 5) -- improved-voidwalker
+		talentMod = talentMod + 0.1 * rank
+		ThreatLib:Debug("Applied Improved Voidwalker Rank: "..rank)
+	end
+	
+	local threat = skill.rankThreat[rank] * talentMod
 
 	if self.petScaling and skill.apFactor then
 		-- This could be optimized pretty heavily
@@ -138,7 +150,7 @@ function Pet:GetSkillThreat(spellID, target)
 			threat = threat + (max(0, petAP - (baseThreat + petLevel)) * skill.apFactor)
 		end
 	end
-
+	ThreatLib:Debug("Return threat: "..threat)
 	return threat
 end
 
