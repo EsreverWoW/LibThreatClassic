@@ -35,6 +35,7 @@
 	<Script file="NPCModules\Azeroth\Azuregos.lua" />
 	<Script file="NPCModules\BlackwingLair\Nefarian.lua" />
 	<Script file="NPCModules\MoltenCore\Shazzrah.lua" />
+	<Script file="NPCModules\MoltenCore\Ragnaros.lua" />
 	<Script file="NPCModules\Naxxramas\Kelthuzad.lua" />
 	<Script file="NPCModules\Naxxramas\Noth.lua" />
 
