@@ -9,7 +9,7 @@ ThreatLib:GetModule("NPCCore"):RegisterModule(
     ONYXIA_ID, 
     function(Onyxia)
         function Onyxia:Init()
-            self:RegisterCombatant(ONYXIA_FIREBALL_SPELL, true)
+            self:RegisterCombatant(ONYXIA_ID, true)
             self:RegisterSpellHandler("SPELL_DAMAGE", self.Fireball, ONYXIA_FIREBALL_SPELL, ONYXIA_FIREBALL_SPELL)
         end
 
