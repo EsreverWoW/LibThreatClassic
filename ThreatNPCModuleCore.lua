@@ -190,7 +190,7 @@ local threeQuarterThreat = function(mob, target) ModifyThreat(mob, target, 0.75,
 local threatThreeQuarterSpellIDs = {
 	-- 25778, -- Void Reaver, Fathom Lurker, Fathom Sporebat, Underbog Lord, Knock Away
 	-- 19633, -- Onyxia, Knock Away
-	20566, -- Ragnaros, Wrath of Ragnaros
+	-- 20566, -- Ragnaros, Wrath of Ragnaros. On Classic it does an entire raid threat reset
 	40486, -- Gurtogg Bloodboil, Eject (we ignore spellID 40597 which has a stun component rather than a knock back component)
 }
 
